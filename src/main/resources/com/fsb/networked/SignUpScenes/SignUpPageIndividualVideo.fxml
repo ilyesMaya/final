@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fsb.networked.controllers.SignUpControllers.SignUpIndividualVideoController">
+   <children>
+      <GridPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1242.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="208.40000610351564" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="411.59999389648436" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="374.20002441406245" />
+            <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="283.9332275390625" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="154.2" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="57.93334350585937" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="49.60002441406249" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="403.00000000000006" valignment="CENTER" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="105.60000000000002" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ImageView fitHeight="99.0" fitWidth="771.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <image>
+                  <Image url="@../../../../images/networked-high-resolution-logo-transparent.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
+            </ImageView>
+            <Text fill="#9fafca" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up today:" textAlignment="CENTER" wrappingWidth="625.1124267578125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <font>
+                  <Font name="Calibri Light" size="40.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Text>
+            <HBox alignment="CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <Button fx:id="backBtn" alignment="CENTER" maxWidth="40.0" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="572.0">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/icons/previous.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnCancel" alignment="CENTER" maxWidth="40.0" mnemonicParsing="false" onAction="#cancelSignUp" prefHeight="40.0" prefWidth="572.0">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/icons/cancel.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="chooseVideoBtn" alignment="CENTER" maxWidth="40.0" mnemonicParsing="false" onAction="#uploadVideoResume" prefHeight="41.0" prefWidth="572.0">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/icons/add_video_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="finishBtn" alignment="CENTER" maxWidth="40.0" mnemonicParsing="false" onAction="#finishSignUpIndividual" prefHeight="38.0" prefWidth="249.0">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/icons/complete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <Text fill="#9fafca" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a video Resume" textAlignment="CENTER" wrappingWidth="781.3789825439453" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Calibri Light" size="40.0" />
+               </font>
+            </Text>
+            <HBox GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <children>
+                  <MediaView fx:id="mediaView" fitHeight="400.0" fitWidth="600.0" />
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="337.0" prefWidth="196.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <children>
+                <Button fx:id="playBtn" minWidth="40.0" mnemonicParsing="false" onAction="#playVideo" prefHeight="44.0" prefWidth="46.0">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/icons/play-button.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="pauseBtn" minWidth="45.0" mnemonicParsing="false" onAction="#pauseVideo" prefHeight="40.0" prefWidth="45.0">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/icons/pause.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="resetBtn" minWidth="0.0" mnemonicParsing="false" onAction="#resetVideo" prefHeight="42.0" prefWidth="46.0">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../images/icons/reset.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="statusLabel" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="270.0" prefWidth="196.0" wrapText="true">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets right="70.0" />
+               </GridPane.margin>
+            </VBox>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
