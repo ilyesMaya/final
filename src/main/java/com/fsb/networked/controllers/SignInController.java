@@ -16,16 +16,19 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class SignInController {
+	@FXML
+	private TextField invisibleTextField;
+
+	@FXML
+	private Button btnTogglePasswordVisible;
+
 
 	@FXML
 	private TextField emailAddressField;
 	
 	@FXML
 	private PasswordField passwordField;
-	
-	@FXML
-	private Button btnTogglePasswordVisibile;
-	
+
 	@FXML
 	private Button btnForgotPassword;
 	
@@ -90,10 +93,35 @@ public class SignInController {
 	}
 
 	@FXML
-	private void togglePasswordVisible()
-	{
-		
+	private void togglePasswordVisible() {
+		// Get the current visibility state of the password field
+		boolean isVisible = passwordField.isVisible();
+
+		// Toggle the visibility state of both password fields
+		passwordField.setVisible(!isVisible);
+		invisibleTextField.setVisible(isVisible);
+
+		// If switching to visible, update the invisible text field with the password text
+		if (isVisible) {
+			invisibleTextField.setText(passwordField.getText());
+			// Add listener to sync changes made in visible field to invisible field
+			passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
+				invisibleTextField.setText(newValue);
+			});
+		} else {
+			// If switching to invisible, update the password field with the text from the invisible text field
+			passwordField.setText(invisibleTextField.getText());
+			// Add listener to sync changes made in invisible field to visible field
+			invisibleTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+				passwordField.setText(newValue);
+			});
+		}
+
+		// Update the text of the button based on the new visibility state
+		String buttonText = isVisible ? "Hide" : "Show";
+		btnTogglePasswordVisible.setText(buttonText);
 	}
-	
-	
+
+
+
 }

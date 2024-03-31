@@ -83,12 +83,6 @@ public class TextPostItemController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            userLikedPost = checkIfUserLikedPost();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle the exception
-        }
     }
     public void sharePost()
     {

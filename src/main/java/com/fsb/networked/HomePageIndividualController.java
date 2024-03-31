@@ -15,12 +15,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -33,6 +36,9 @@ public class HomePageIndividualController implements Initializable {
     //labels
     @FXML
     Label welcomeNameLabel;
+    @FXML
+    private Label statusLabel;
+
 
     //buttons
     @FXML
@@ -71,6 +77,7 @@ public class HomePageIndividualController implements Initializable {
     ImageView NotificationImageView;
     @FXML
     ImageView jobImageView;
+    private ImageView profilePictureImg;
 
     //SCROLLPANES
     @FXML
@@ -103,7 +110,8 @@ public class HomePageIndividualController implements Initializable {
     private VBox messageConnectionLayoutVbox;
     @FXML
     private VBox connectionSuggestionsLayoutVbox;
-    // Media Players
+
+// Media Players
     private List<MediaPlayer> mediaPlayers = new ArrayList<>();
     //in notifications and messages button if user has messages or notifications replace the Icon with a red one
     //just change the imageview resource in the tab imageview
@@ -229,10 +237,21 @@ public class HomePageIndividualController implements Initializable {
 
     }
     @FXML
-    private void addChangePfp()
-    {
-
+    private void addChangePfp() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose a profile picture");
+        File file = fileChooser.showOpenDialog(changeAddPfpBtn.getScene().getWindow());
+        if (file != null) {
+            System.out.println("path: " + file.toURI().getPath());
+            Image newProfileImage = new Image(file.toURI().toString());
+            profilePictureImageView.setImage(newProfileImage);
+            // Update the button text after changing the profile picture
+            changeAddPfpBtn.setText("Change Profile Picture");
+        } else {
+            System.out.println("Invalid profile image used!!");
+        }
     }
+
     @FXML
     private void search()
     {
@@ -690,20 +709,24 @@ public class HomePageIndividualController implements Initializable {
     }
 
 
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadSuggestionsVBox();
-        //change the button text based on the user pfp
-        if(profilePictureImageView.getImage().getUrl().toString().substring(6)
-                .equals(FileLoader.getImagePath("/images/male_avatar.png").substring(6)) ||
-                        profilePictureImageView.getImage().getUrl().toString().substring(6)
-                                .equals(FileLoader.getImagePath("/images/female_avatar.png").substring(6)))
-        {
+        if (profilePictureImageView != null && profilePictureImageView.getImage() != null) {
+            //change the button text based on the user pfp
+            if(profilePictureImageView.getImage().getUrl().toString().substring(6)
+                    .equals(FileLoader.getImagePath("/images/male_avatar.png").substring(6)) ||
+                    profilePictureImageView.getImage().getUrl().toString().substring(6)
+                            .equals(FileLoader.getImagePath("/images/female_avatar.png").substring(6)))
+            {
+                changeAddPfpBtn.setText("Add a profile picture");
+            }
+            else {
+                changeAddPfpBtn.setText("Change the profile picture");
+            }
+        } else {
+            // Handle the case where profilePictureImageView is not initialized or its image is null
             changeAddPfpBtn.setText("Add a profile picture");
         }
-        else {
-            changeAddPfpBtn.setText("Change the profile picture");
-        }
     }
+
 }
 
